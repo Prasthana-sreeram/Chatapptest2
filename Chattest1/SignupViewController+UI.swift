@@ -11,17 +11,7 @@ import UIKit
 extension SignupViewController{
     
     
-    func setupsignUpUI(){
-        
-        setupTitleLabel()
-        setupmainImageview()
-        setupfullnameTextiField()
-        setupemailTextField()
-        setuppasswordTextField()
-        setupsignUpButton()
-        setupsignInButton()
-        
-    }
+    
     func  setupTitleLabel(){
         let title = "Sign Up"
         
@@ -33,8 +23,18 @@ extension SignupViewController{
     func setupmainImageview(){
         mainImageView.layer.cornerRadius = 40
         mainImageView.clipsToBounds = true
-        
+        mainImageView.isUserInteractionEnabled = true
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(presentPicker))
+        mainImageView.addGestureRecognizer(tapGesture)
     }
+    @objc func presentPicker() {
+        let picker = UIImagePickerController()
+        picker.sourceType = .photoLibrary
+        picker.allowsEditing = true
+        picker.delegate = self
+        self.present(picker,animated: true,completion: nil)
+    }
+    
     func setupfullnameTextiField(){
         
         fullnameContainerView.layer.borderWidth = 1
@@ -99,6 +99,22 @@ extension SignupViewController{
         
     }
     
+}
+
+extension SignupViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let imageSeclected = info[UIImagePickerController.InfoKey.editedImage] as? UIImage{
+            image = imageSeclected
+            mainImageView.image = imageSeclected
+        }
+        if let imageOriginal = info[UIImagePickerController.InfoKey.editedImage] as? UIImage{
+            image = imageOriginal
+            mainImageView.image = imageOriginal
+        }
+        
+        picker.dismiss(animated: true, completion: nil)
+        
+    }
 }
         // Do any additional setup after loading the view.
     
