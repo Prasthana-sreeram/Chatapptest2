@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		621965DD243EF06900DFBCEB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 621965DC243EF06900DFBCEB /* GoogleService-Info.plist */; };
+		6261171F243F2B880067443B /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6261171E243F2B880067443B /* Api.swift */; };
+		62611721243F2C430067443B /* UserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62611720243F2C430067443B /* UserApi.swift */; };
 		9B645503242E04570029376E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B645502242E04570029376E /* AppDelegate.swift */; };
 		9B645505242E04570029376E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B645504242E04570029376E /* SceneDelegate.swift */; };
 		9B645507242E04570029376E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B645506242E04570029376E /* ViewController.swift */; };
@@ -26,6 +28,8 @@
 
 /* Begin PBXFileReference section */
 		621965DC243EF06900DFBCEB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		6261171E243F2B880067443B /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
+		62611720243F2C430067443B /* UserApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserApi.swift; sourceTree = "<group>"; };
 		9565652CBA0371A299B41C4F /* Pods_Chattest1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chattest1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B6454FF242E04570029376E /* Chattest1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chattest1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B645502242E04570029376E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -100,13 +104,15 @@
 				9B645504242E04570029376E /* SceneDelegate.swift */,
 				9B645506242E04570029376E /* ViewController.swift */,
 				9BBDD30A2431CE2100711475 /* ViewController+UI.swift */,
+				9B645508242E04570029376E /* Main.storyboard */,
 				9BBDD30C24323D1C00711475 /* SignupViewController.swift */,
 				9BBDD30E24328E5100711475 /* SignupViewController+UI.swift */,
 				9BBDD31024329B9300711475 /* SignInViewController.swift */,
 				9BBDD3122432A04E00711475 /* SignInViewController+UI.swift */,
 				9BBDD3142432A46900711475 /* ForgotPasswordViewController.swift */,
 				9BBDD3162432A51C00711475 /* ForgotPasswordViewController+UI.swift */,
-				9B645508242E04570029376E /* Main.storyboard */,
+				6261171E243F2B880067443B /* Api.swift */,
+				62611720243F2C430067443B /* UserApi.swift */,
 				9B64550B242E04590029376E /* Assets.xcassets */,
 				9B64550D242E04590029376E /* LaunchScreen.storyboard */,
 				9B645510242E04590029376E /* Info.plist */,
@@ -236,9 +242,11 @@
 				9BBDD31124329B9300711475 /* SignInViewController.swift in Sources */,
 				9B645507242E04570029376E /* ViewController.swift in Sources */,
 				9BBDD3172432A51C00711475 /* ForgotPasswordViewController+UI.swift in Sources */,
+				6261171F243F2B880067443B /* Api.swift in Sources */,
 				9B645503242E04570029376E /* AppDelegate.swift in Sources */,
 				9BBDD30F24328E5100711475 /* SignupViewController+UI.swift in Sources */,
 				9BBDD30D24323D1C00711475 /* SignupViewController.swift in Sources */,
+				62611721243F2C430067443B /* UserApi.swift in Sources */,
 				9BBDD30B2431CE2100711475 /* ViewController+UI.swift in Sources */,
 				9B645505242E04570029376E /* SceneDelegate.swift in Sources */,
 			);

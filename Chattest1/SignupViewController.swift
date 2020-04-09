@@ -10,6 +10,7 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
+import ProgressHUD
 
 class SignupViewController: UIViewController {
 
@@ -54,6 +55,7 @@ class SignupViewController: UIViewController {
         
     }
     
+   
     
     @IBAction func dismissAction(_ sender: Any) {
         navigationController?.popViewController(animated: true)
@@ -61,60 +63,10 @@ class SignupViewController: UIViewController {
     }
     
     @IBAction func signupButtonDidTapped(_ sender: Any) {
+        self.view.endEditing(true)
+        self.validateFields()
+        self.signUp()
         
-        guard let imageSeclected = self.image else{
-            print("mainImage is nil")
-            return
-        }
-        guard let imageData = imageSeclected.jpegData(compressionQuality: 0.4) else{
-            
-            return
-        }
-        Auth.auth().createUser(withEmail: "testmail11@gmail.com", password: "12345678")
-                               {(AuthDataResult, Error) in
-                                if Error != nil{
-                                    print(Error!.localizedDescription)
-                                    return
-                                }
-                                if let authData = AuthDataResult{
-                                    print (authData.user.email)
-                                    var dict: Dictionary<String, Any> = [
-                                        "uid" : authData.user.uid,
-                                        "email" :authData.user.email,
-                                        "profileImageUrl" : "",
-                                        "status" : "Welcome to chatapp"
-                                    ]
-                                    
-                                    let storageRef = Storage.storage().reference(forURL: "gs://chatapp-51be6.appspot.com")
-                                    let storageProfileRef = storageRef.child("profile").child(authData.user.uid)
-                                    
-                                    let metadata = StorageMetadata()
-                                    metadata.contentType = "image/jpg"
-                                    storageProfileRef.putData(imageData, metadata: metadata, completion: {
-                                        (StorageMetadata, Error) in
-                                        if Error != nil{
-                                            print(Error?.localizedDescription)
-                                            return
-                                        }
-                                        
-                                        storageProfileRef.downloadURL(completion: {
-                                            (URL, Error) in
-                                            if let metaImageUrl = URL?.absoluteString {
-                                                dict["profileImageUrl"] = metaImageUrl
-                                                
-                                                Database.database().reference().child("users")
-                                                .child(authData.user.uid).updateChildValues(dict, withCompletionBlock: {
-                                                    (Error, ref) in
-                                                    if Error == nil{
-                                                        print("Done")
-                                                    }
-                                                })
-                                            }
-                                        })
-                                    })
-                                    
-                                    
-                                }
         }
     }
     /*
@@ -127,4 +79,4 @@ class SignupViewController: UIViewController {
     }
     */
 
-}
+

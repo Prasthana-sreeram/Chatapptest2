@@ -59,7 +59,7 @@ extension SignInViewController{
         
     }
     func setupsignInButton(){
-        signInButton.setTitle("Sign Up", for: UIControl.State.normal)
+        signInButton.setTitle("Sign In", for: UIControl.State.normal)
         signInButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
         signInButton.backgroundColor = UIColor.black
         signInButton.layer.cornerRadius = 5
