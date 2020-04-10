@@ -65,7 +65,12 @@ class SignupViewController: UIViewController {
     @IBAction func signupButtonDidTapped(_ sender: Any) {
         self.view.endEditing(true)
         self.validateFields()
-        self.signUp()
+        self.signUp(onSuccess: {
+//            on switch view
+            
+        }) {(errorMessage) in
+            ProgressHUD.showError(errorMessage)
+        }
         
         }
     }
